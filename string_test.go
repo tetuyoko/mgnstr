@@ -6,13 +6,18 @@ import (
 )
 
 func TestIncludesAny(t *testing.T) {
-	assert.True(
-		t,
-		IncludesAny("hoge", []string{"hage", "hoge", "hug"}),
-	)
+	targets := []string{"hage", "hoge", "hug"}
+	assert.True(t,  IncludesAny("hoge", targets))
+	assert.False(t, IncludesAny("ha",   targets))
+}
 
-	assert.False(
-		t,
-		IncludesAny("hoge", []string{"hage", "huge", "hug"}),
-	)
+func TestContainsAny(t *testing.T) {
+	targets := []string{"__MACOSX", ".DS_Store"}
+	trues := []string{"__MACOSX", "__MACOSX/hogehoge", "hoge/.DS_Store"}
+
+	for _, sample := range trues {
+		assert.True(t, ContainsAny(sample, targets))
+	}
+
+	assert.False(t, ContainsAny("hoge", targets))
 }

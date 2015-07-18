@@ -10,11 +10,7 @@ import (
 	"github.com/satori/go.uuid"
 )
 
-func Sum(a int, b int) int {
-	return a + b
-}
-
-// targetがstrsの中に一つでも完全一致する
+// target文字列がstrs要素として完全一致で一つでも存在する
 func IncludesAny(target string, strs []string) bool {
 	for _, str := range strs {
 		if target == str {
@@ -24,7 +20,7 @@ func IncludesAny(target string, strs []string) bool {
 	return false
 }
 
-// targetがstrsの中に一つでも部分一致する
+// target文字列中にstrs要素のいずれかの文字列が出現する
 func ContainsAny(target string, strs []string) bool {
 	for _, str := range strs {
 		if strings.Contains(target, str) {
