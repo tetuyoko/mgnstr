@@ -10,7 +10,7 @@ import (
 	"github.com/satori/go.uuid"
 )
 
-// target文字列がstrs要素として完全一致で一つでも存在する
+// target string is also exist in one for an exact match as strs element
 func IncludesAny(target string, strs []string) bool {
 	for _, str := range strs {
 		if target == str {
@@ -20,7 +20,7 @@ func IncludesAny(target string, strs []string) bool {
 	return false
 }
 
-// target文字列中にstrs要素のいずれかの文字列が出現する
+// one of the strings of strs elements appear in the target string
 func ContainsAny(target string, strs []string) bool {
 	for _, str := range strs {
 		if strings.Contains(target, str) {
@@ -30,24 +30,25 @@ func ContainsAny(target string, strs []string) bool {
 	return false
 }
 
-// pathに含まれるextのうち、大文字、小文字を全て小文字として扱う
+// Of the ext that is included in the path,
+// it treats all letters as lowercase
 func UniversalExt(pth string) string {
 	return strings.ToLower(path.Ext(pth))
 }
 
-// UUIDを生成する
+// generate UUID v4 as string.
 func GetUUID() string {
 	return fmt.Sprintf("%s", uuid.NewV4())
 }
 
-// 8桁のUUIDを生成する
+// generate UUID v4, 8 letter as string.
 func Get8UUID() string {
 	u1 := uuid.NewV4()
 	str := fmt.Sprintf("%s", u1)
 	return str[0:8]
 }
 
-// api key用の文字列を生成する
+// generate sha256 key
 func GetSha256() (n string, err error) {
 	data := make([]byte, 10)
 	if _, err := rand.Read(data); err != nil {
