@@ -1,4 +1,4 @@
-package mgnstring
+package mgnstr
 
 import (
 	"testing"

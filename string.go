@@ -1,12 +1,13 @@
-package mgnstring
+package mgnstr
 
 import (
-	"crypto/rand"
-	"crypto/sha256"
 	"fmt"
-	"github.com/satori/go.uuid"
 	"path"
 	"strings"
+
+	"crypto/rand"
+	"crypto/sha256"
+	"github.com/satori/go.uuid"
 )
 
 func Sum(a int, b int) int {
