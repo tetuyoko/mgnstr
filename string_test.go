@@ -36,3 +36,9 @@ func TestGetUUID(t *testing.T) {
 	assert.Equal(t, len(sample), 36)
 	assert.NotEqual(t, GetUUID(), sample)
 }
+
+func TestGet8UUID(t *testing.T) {
+	sample := Get8UUID()
+	assert.Equal(t, len(sample), 8)
+	assert.NotEqual(t, Get8UUID(), sample)
+}
