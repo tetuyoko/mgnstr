@@ -21,3 +21,12 @@ func TestContainsAny(t *testing.T) {
 
 	assert.False(t, ContainsAny("hoge", targets))
 }
+
+func TestUniversalExt(t *testing.T) {
+	samples := []string{"hoge.txt", "hoge.TXT"}
+	for _, sample := range samples {
+		assert.Equal(t,  UniversalExt(sample), ".txt")
+	}
+
+	assert.NotEqual(t,  UniversalExt("hoge.TXT"), ".TXT")
+}
