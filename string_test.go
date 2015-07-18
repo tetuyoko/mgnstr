@@ -30,3 +30,9 @@ func TestUniversalExt(t *testing.T) {
 
 	assert.NotEqual(t,  UniversalExt("hoge.TXT"), ".TXT")
 }
+
+func TestGetUUID(t *testing.T) {
+	sample := GetUUID()
+	assert.Equal(t, len(sample), 36)
+	assert.NotEqual(t, GetUUID(), sample)
+}
