@@ -2,12 +2,17 @@ package mgnstr
 
 import (
 	"testing"
+	"github.com/stretchr/testify/assert"
 )
 
-func TestSum(t *testing.T) {
-	actual := Sum(10, 20)
-	expected := 30
-	if actual != expected {
-		t.Errorf("got %v\nwant %v", actual, expected)
-	}
+func TestIncludesAny(t *testing.T) {
+	assert.True(
+		t,
+		IncludesAny("hoge", []string{"hage", "hoge", "hug"}),
+	)
+
+	assert.False(
+		t,
+		IncludesAny("hoge", []string{"hage", "huge", "hug"}),
+	)
 }
