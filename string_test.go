@@ -1,14 +1,14 @@
 package mgnstr
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestIncludesAny(t *testing.T) {
 	targets := []string{"hage", "hoge", "hug"}
-	assert.True(t,  IncludesAny("hoge", targets))
-	assert.False(t, IncludesAny("ha",   targets))
+	assert.True(t, IncludesAny("hoge", targets))
+	assert.False(t, IncludesAny("ha", targets))
 }
 
 func TestContainsAny(t *testing.T) {
@@ -25,10 +25,10 @@ func TestContainsAny(t *testing.T) {
 func TestUniversalExt(t *testing.T) {
 	samples := []string{"hoge.txt", "hoge.TXT"}
 	for _, sample := range samples {
-		assert.Equal(t,  UniversalExt(sample), ".txt")
+		assert.Equal(t, UniversalExt(sample), ".txt")
 	}
 
-	assert.NotEqual(t,  UniversalExt("hoge.TXT"), ".TXT")
+	assert.NotEqual(t, UniversalExt("hoge.TXT"), ".TXT")
 }
 
 func TestGetUUID(t *testing.T) {
@@ -47,6 +47,6 @@ func TestGetSha256(t *testing.T) {
 	sample, err := GetSha256()
 	assert.Nil(t, err)
 	assert.Equal(t, len(sample), 32)
-	sample2, _ :=  GetSha256()
+	sample2, _ := GetSha256()
 	assert.NotEqual(t, sample2, sample)
 }
