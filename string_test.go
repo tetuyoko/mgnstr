@@ -44,9 +44,8 @@ func TestGet8UUID(t *testing.T) {
 }
 
 func TestGetSha256(t *testing.T) {
-	sample, err := GetSha256()
-	assert.Nil(t, err)
+	sample := GetSha256()
+	sample2 := GetSha256()
 	assert.Equal(t, len(sample), 32)
-	sample2, _ := GetSha256()
 	assert.NotEqual(t, sample2, sample)
 }

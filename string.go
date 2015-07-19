@@ -49,11 +49,9 @@ func Get8UUID() string {
 }
 
 // generate sha256 key
-func GetSha256() (n string, err error) {
+func GetSha256() string {
 	data := make([]byte, 10)
-	if _, err := rand.Read(data); err != nil {
-		return "", err
-	}
+	_, _ = rand.Read(data)
 	uintdata := fmt.Sprintf("%x", sha256.Sum256(data))
-	return string(uintdata)[0:32], nil
+	return string(uintdata)[0:32]
 }
