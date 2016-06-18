@@ -5,6 +5,8 @@ go:
   - 1.6
   - tip
 
+sudo: false
+
 script:
   - go test $(glide novendor)
 
