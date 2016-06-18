@@ -1,0 +1,4 @@
+package: github.com/tetuyoko/mgnstr
+import:
+  - package: github.com/satori/go.uuid
+  - package: github.com/stretchr/testify/assert
