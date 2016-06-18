@@ -10,7 +10,7 @@ import (
 	"github.com/satori/go.uuid"
 )
 
-// target string is also exist in one for an exact match as strs element
+// IncludesAny is target string is also exist in one for an exact match as strs element
 func IncludesAny(target string, strs []string) bool {
 	for _, str := range strs {
 		if target == str {
@@ -20,7 +20,7 @@ func IncludesAny(target string, strs []string) bool {
 	return false
 }
 
-// one of the strings of strs elements appear in the target string
+// ContainsAny is one of the strings of strs elements appear in the target string
 func ContainsAny(target string, strs []string) bool {
 	for _, str := range strs {
 		if strings.Contains(target, str) {
@@ -30,25 +30,25 @@ func ContainsAny(target string, strs []string) bool {
 	return false
 }
 
-// Of the ext that is included in the path,
+// UniversalExt is Of the ext that is included in the path,
 // it treats all letters as lowercase
 func UniversalExt(pth string) string {
 	return strings.ToLower(path.Ext(pth))
 }
 
-// generate UUID v4 as string.
+// GetUUID is generate UUID v4 as string.
 func GetUUID() string {
 	return fmt.Sprintf("%s", uuid.NewV4())
 }
 
-// generate UUID v4, 8 letter as string.
+// Get8UUID is generate UUID v4, 8 letter as string.
 func Get8UUID() string {
 	u1 := uuid.NewV4()
 	str := fmt.Sprintf("%s", u1)
 	return str[0:8]
 }
 
-// generate sha256 key
+// GetSha256 is generate sha256 key
 func GetSha256() string {
 	data := make([]byte, 10)
 	_, _ = rand.Read(data)
