@@ -5,14 +5,10 @@ go:
   - 1.6
   - tip
 
-sudo: true
-
-before_install:
-  - sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update
-  - sudo apt-get install glide
+sudo: false
 
 script:
-  - go test $(glide novendor)
+  - go test $(go list ./... | grep -v vendor)
 
 notifications:
   webhooks:
