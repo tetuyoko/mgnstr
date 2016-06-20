@@ -8,8 +8,8 @@ go:
 sudo: true
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev
+  - sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update
+  - sudo apt-get install glide
 
 script:
   - go test $(glide novendor)
