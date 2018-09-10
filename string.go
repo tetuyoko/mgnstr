@@ -7,6 +7,7 @@ import (
 
 	"crypto/rand"
 	"crypto/sha256"
+
 	"github.com/satori/go.uuid"
 )
 
