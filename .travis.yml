@@ -1,15 +1,18 @@
 language: go
-
 go:
-  - 1.10
   - 1.11
   - tip
-
+dist: trusty
 sudo: false
-
+before_install:
+  - echo -e "machine api.github.com\n  login ${GITHUB_LOGIN}\n  password ${GITHUB_TOKEN}" > ~/.netrc
+  - chmod 600 ~/.netrc
+install:
+  - go get -u golang.org/x/vgo
 script:
-  - go test $(go list ./... | grep -v vendor)
-
+  - vgo test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   webhooks:
     urls:
